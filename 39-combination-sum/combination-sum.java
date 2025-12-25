@@ -5,6 +5,7 @@ class Solution {
         return ans;
     }
     public  void solve(ArrayList<Integer> list, int [] candidates, int target,int index){
+        if(target<0) return ;
         if(target==0){
             ArrayList<Integer> safe = new ArrayList<Integer>(list);
             Collections.sort(safe);

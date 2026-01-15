@@ -1,6 +1,6 @@
 class Solution {
     static boolean isPal(String s, int l, int r){
-        while(l<r){
+        while(l<=r){
             if(s.charAt(l)!=s.charAt(r))return false;
             l++;
             r--;

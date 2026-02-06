@@ -6,10 +6,14 @@ class Solution {
         }
         return hours;
     }
+    private static int max(int[] arr) {
+        int m = Integer.MIN_VALUE;
+        for (int x : arr) m = Math.max(m, x);
+        return m;
+    }
     public static int minEatingSpeed(int[] piles, int h) {
         int low = 1;
-        Arrays.sort(piles);
-        int high = piles[piles.length-1];
+        int high = max(piles);
         int ans=1000000000;
         while(low<=high){
             int mid = low + (high-low)/2;

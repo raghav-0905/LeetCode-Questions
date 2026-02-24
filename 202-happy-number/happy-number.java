@@ -1,16 +1,15 @@
 class Solution {
     public boolean isHappy(int n) {
-        Set<Integer> visit = new HashSet<>();
-        
-        while (!visit.contains(n)) {
-            visit.add(n);
-            n = getNextNumber(n);
-            if (n == 1) {
-                return true;
-            }
+        int slow = getNextNumber(n);
+        int fast = getNextNumber(getNextNumber(n));
+
+        while (slow != fast) {
+            if (fast == 1) return true;
+            slow = getNextNumber(slow);
+            fast = getNextNumber(getNextNumber(fast));
         }
-        
-        return false;
+
+        return slow == 1;
     }
 
     private int getNextNumber(int n) {
